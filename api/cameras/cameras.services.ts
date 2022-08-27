@@ -1,6 +1,6 @@
-import connection from '../models/connection';
-import CameraModel from '../models/cameras.model';
-import Camera from '../interfaces/Camera.interface';
+import connection from './connection';
+import CameraModel from './cameras.model';
+import Camera from '../../interfaces/Camera.interface';
 
 class CameraService {
   public model: CameraModel;

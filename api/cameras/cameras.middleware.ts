@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import Camera from '../interfaces/Camera.interface';
+import Camera from '../../interfaces/Camera.interface';
 
 const properties = ['nome', 'fabricante', 'serie'];
 

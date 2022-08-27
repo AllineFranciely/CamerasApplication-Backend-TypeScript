@@ -1,5 +1,5 @@
 import { Pool, ResultSetHeader } from 'mysql2/promise';
-import Camera from '../interfaces/Camera.interface';
+import Camera from '../../interfaces/Camera.interface';
 
 export default class CameraModel {
   public connection: Pool;

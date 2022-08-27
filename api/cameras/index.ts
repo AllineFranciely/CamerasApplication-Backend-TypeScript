@@ -1,12 +1,21 @@
-import { Router } from 'express';
-import CameraController from '../../controllers/cameras.controllers';
-import validationCamera from '../../middlewares/cameras.middleware';
+import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import CameraService from './cameras.services';
 
-const router = Router();
+export class CameraController {
+  constructor(private cameraService = new CameraService()) { }
 
-const cameraController = new CameraController();
+  public getAll = async (_req: Request, res: Response) => {
+    const cameras = await this.cameraService.getAll();
+    res.status(StatusCodes.OK).json(cameras);
+  };
 
-router.get('/cameras', cameraController.getAll);
-router.post('/cameras', validationCamera, cameraController.create);
+  public create = async (req: Request, res: Response) => {
+    const camera = req.body;
 
-export default router;
+    const cameraCreated = await this.cameraService.create(camera);
+    res.status(StatusCodes.CREATED).json(cameraCreated);
+  };
+}
+
+export default new CameraController().getAll;

@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
-import CamerasRoutes from './cameras';
+import { StatusCodes } from 'http-status-codes';
+import CamerasRoutes from './cameras/cameras.routes';
 import cors from 'cors';
 
 const app = express();
@@ -16,7 +16,7 @@ app.get('/', (req: Request, res: Response) => {
     res.status(StatusCodes.OK).send('Express + TypeScript')
 });
 
-app.use(CamerasRoutes);
+// app.use(CamerasRoutes);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const { name, message, details } = err as any;
