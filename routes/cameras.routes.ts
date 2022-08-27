@@ -7,6 +7,6 @@ const router = Router();
 const cameraController = new CameraController();
 
 router.get('/cameras', cameraController.getAll);
-router.post('/cameras/', validationCamera, cameraController.create);
+router.post('/cameras', validationCamera, cameraController.create);
 
 export default router;
