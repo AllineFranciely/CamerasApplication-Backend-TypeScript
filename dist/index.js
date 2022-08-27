@@ -7,8 +7,10 @@ const express_1 = __importDefault(require("express"));
 const http_status_codes_1 = require("http-status-codes");
 require("express-async-errors");
 const cameras_routes_1 = __importDefault(require("./routes/cameras.routes"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
+app.use((0, cors_1.default)());
 const PORT = 8000;
 app.get('/', (req, res) => {
     res.status(http_status_codes_1.StatusCodes.OK).send('Express + TypeScript');
@@ -33,6 +35,6 @@ app.use((err, req, res, next) => {
     }
     next();
 });
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
