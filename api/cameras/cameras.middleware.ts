@@ -30,16 +30,14 @@ function validationCamera(req: Request, res: Response, next: NextFunction) {
   let [valid, property] = validateProperties(camera);
 
   if (!valid) {
-    return res.status(StatusCodes.BAD_REQUEST).send(
-      `O campo ${property} é obrigatório.`,
+    return res.status(StatusCodes.BAD_REQUEST).json({message: `O campo ${property} é obrigatório.` }
     );
   }
 
   [valid, property] = validateValues(camera);
 
   if (!valid) {
-    return res.status(StatusCodes.BAD_REQUEST).send(
-      `O campo ${property} não pode ser nulo ou vazio.`,
+    return res.status(StatusCodes.BAD_REQUEST).json({ message: `O campo ${property} não pode ser nulo ou vazio.` }
     );
   }
 
