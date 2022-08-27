@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import 'express-async-errors';
-import CamerasRoutes from './routes/cameras.routes';
+import CamerasRoutes from './cameras';
 import cors from 'cors';
 
 const app = express();

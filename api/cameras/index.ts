@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import CameraController from '../controllers/cameras.controllers';
-import validationCamera from '../middlewares/cameras.middleware';
+import CameraController from '../../controllers/cameras.controllers';
+import validationCamera from '../../middlewares/cameras.middleware';
 
 const router = Router();
 
